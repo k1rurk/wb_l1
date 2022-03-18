@@ -7,12 +7,12 @@ import (
 
 func checkUniqueChars(str string) bool {
 	str = strings.ToLower(str)
-	tempMap := make(map[string]interface{})
-	for i := range str {
-		if _, ok := tempMap[string(str[i])]; ok {
+	tempMap := make(map[rune]interface{})
+	for _, v := range str {
+		if _, ok := tempMap[v]; ok {
 			return false
 		} else {
-			tempMap[string(str[i])] = new(interface{})
+			tempMap[v] = new(interface{})
 		}
 	}
 	return true
